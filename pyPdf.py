@@ -1,7 +1,7 @@
 #Read from PDF
 
 from pypdf import PdfReader
-
+#swetha changed the above preferences
 reader = PdfReader("Sample.pdf")
 
 print("Number of pages:", len(reader.pages))

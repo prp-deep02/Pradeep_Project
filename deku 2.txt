@@ -1,0 +1,78 @@
+"""from pypdf import PdfReader
+reader=PdfReader("week_pj.pdf")
+print("Number of pages:", len(reader.pages))
+
+for page in reader.pages:
+    text = page.extract_text()
+    print(text)
+"""
+"""from pypdf import PdfReader, PdfWriter
+reader=PdfReader("week_pj.pdf")
+writer=PdfWriter()
+
+for page in reader.pages:
+    writer.add_page(page)
+
+    with open("output.pdf","wb") as f:
+        writer.write(f)"""
+
+"""from pypdf import PdfWriter
+
+writer = PdfWriter()
+
+writer.append("ash_pk.pdf")
+writer.append("lelouch_pf.pdf")
+
+writer.write("merged.pdf")
+writer.close()
+
+from pypdf import PdfReader
+
+# ------------------------------------------------
+# STEP 1: Extract full text from PDF
+# ------------------------------------------------
+reader = PdfReader("week_pj.pdf")
+
+full_text = ""
+for page in reader.pages:
+    text = page.extract_text()
+    if text:
+        full_text += text    # Join all pages into one big string
+
+print(f"Total characters in PDF: {len(full_text)}")
+
+
+# ------------------------------------------------
+# STEP 2: Split into chunks of fixed character size
+# ------------------------------------------------
+def chunk_by_characters(text, chunk_size=500):
+    """
+    Splits text into chunks of fixed character length.
+    chunk_size = how many characters per chunk
+    """
+    chunks = []                        # Empty list to store chunks
+
+    start = 0                          # Start position of each chunk
+
+    while start < len(text):
+        end = start + chunk_size       # End position of this chunk
+        chunk = text[start:end]        # Slice the text
+        chunks.append(chunk)           # Add chunk to list
+        start = end                    # Move start to next chunk
+
+    return chunks
+
+
+# ------------------------------------------------
+# STEP 3: Run the function and display results
+# ------------------------------------------------
+chunks = chunk_by_characters(full_text, chunk_size=500)
+
+print(f"Total chunks created: {len(chunks)}")
+print()
+
+for i, chunk in enumerate(chunks):
+    print(f"--- Chunk {i+1} ---")
+    print(chunk)
+    print()      """
+print("Hello from deku branch")

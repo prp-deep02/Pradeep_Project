@@ -10,6 +10,8 @@ for page in reader.pages:
     text = page.extract_text()
     print(text)
 
+#Pradeep nee start da, nee dhane maaasey
+#Vinveli naaayagaaaaaaaaaaaaaaaaaaa
 
 #Copy Paste from exisiting PDF
 """
